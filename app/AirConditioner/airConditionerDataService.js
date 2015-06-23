@@ -1,22 +1,21 @@
 angular
     .module('app')
-    .controller('airConditionerCtrl', airConditionerCtrl);
+    .factory('airConditionerDataService', airConditionerDataService);
 
-//airConditionerCtrl.$inject = [''];
+//airConditionerDataService.$inject = [''];
 
 /* @ngInject */
-function airConditionerCtrl() {
-    /* jshint validthis: true */
-    var vm = this;
-    vm.airConditioners=[];
-    vm.getWorkingAirConditionersLength=getWorkingAirConditionersLength;
+function airConditionerDataService() {
+    var service = {
+        getAirConditioners: getAirConditioners
+    };
 
-    activate();
+    return service;
 
     ////////////////
 
-    function activate() {
-        vm.airConditioners=[
+    function getAirConditioners() {
+        return [
             {
                 brand:'LG',
                 description:'A powerful air conditioner',
@@ -38,10 +37,6 @@ function airConditionerCtrl() {
         ]
     }
 
-    function getWorkingAirConditionersLength(){
-        return vm.airConditioners.reduce(function(accum,currentValue){
-            if (currentValue.isWorking) accum++;
-            return accum;
-        },0)
-    }
+
 }
+
