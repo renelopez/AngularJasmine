@@ -2,14 +2,15 @@ angular
     .module('app')
     .controller('airConditionerServiceCtrl', airConditionerServiceCtrl);
 
-airConditionerCtrl.$inject = ['airConditionerDataService'];
+airConditionerCtrl.$inject = ['$location','airConditionerDataService'];
 
 /* @ngInject */
-function airConditionerServiceCtrl(airConditionerDataService) {
+function airConditionerServiceCtrl($location,airConditionerDataService) {
     /* jshint validthis: true */
     var vm = this;
     vm.airConditioners=[];
     vm.getWorkingAirConditionersLength=getWorkingAirConditionersLength;
+    vm.navigateToDetails=navigateToDetails;
 
     activate();
 
@@ -24,5 +25,11 @@ function airConditionerServiceCtrl(airConditionerDataService) {
             if (currentValue.isWorking) accum++;
             return accum;
         },0)
+    }
+
+    function navigateToDetails(user){
+        if(user){
+            $location.url('/user/'+user.id);
+        }
     }
 }
