@@ -1,3 +1,5 @@
+(function(){
+
 angular
     .module('app')
     .controller('airConditionerCtrl', airConditionerCtrl);
@@ -9,7 +11,7 @@ function airConditionerCtrl() {
     /* jshint validthis: true */
     var vm = this;
     vm.airConditioners=[];
-    vm.getWorkingAirConditionerCount=getWorkingAirConditionerCount;
+    vm.getWorkingAirConditionersCount=getWorkingAirConditionersCount;
 
     activate();
 
@@ -38,9 +40,9 @@ function airConditionerCtrl() {
         ]
     }
 
-    function getWorkingAirConditionerCount(){
+    function getWorkingAirConditionersCount(){
         return vm.airConditioners.reduce(function(accum,actualValue){
-            if(actualValue.isWorking) {
+            if(actualValue.isWorking){
                 accum++;
             }
             return accum;
@@ -48,4 +50,7 @@ function airConditionerCtrl() {
     }
 
 
+
+
 }
+})();
