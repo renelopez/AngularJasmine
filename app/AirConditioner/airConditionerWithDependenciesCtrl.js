@@ -19,7 +19,7 @@ function airConditionerWithDependenciesCtrl($location,airConditionerDataService)
     ////////////////
 
     function activate() {
-        vm.airConditioners=airConditionerDataService.getAirConditioners();
+        vm.airConditioners=airConditionerDataService.getGithubDataByUser();
     }
 
     function getWorkingAirConditionersCount(){
