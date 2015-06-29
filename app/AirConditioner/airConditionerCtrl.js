@@ -12,7 +12,7 @@ function airConditionerCtrl() {
     var vm = this;
     vm.airConditioners=[];
     vm.getWorkingAirConditionersCount=getWorkingAirConditionersCount;
-
+    vm.showDetails=showDetails;
     activate();
 
     ////////////////
@@ -48,7 +48,9 @@ function airConditionerCtrl() {
             return accum;
         },0)
     }
-
+    function showDetails(ac){
+        alert(ac.brand);
+    }
 
 
 

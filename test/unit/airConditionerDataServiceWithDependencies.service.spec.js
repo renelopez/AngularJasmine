@@ -1,4 +1,4 @@
-fdescribe('Air Conditioner Data Service with dependencies Tests',function(){
+describe('Air Conditioner Data Service with dependencies Tests',function(){
     var mockedGitHubService;
 
     beforeEach(module('app'));
