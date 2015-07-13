@@ -1,37 +1,36 @@
 fdescribe('Tabular Data Directive Specs',function(){
 
-    var el,stubShowDetails;
-
     beforeEach(module('app'));
     beforeEach(module('app/partials/directives/tabularData.html'));
 
+    var el,stubShowDetails;
+
     beforeEach(inject(function($compile,$rootScope){
-        //set up scope
-        stubShowDetails=sinon.stub();
         var scope=$rootScope.$new();
+        stubShowDetails=sinon.stub();
+
         scope.airConditioners=[
             {
-                brand:'MockedBrand',
-                description:'MockedDescription',
-                cost:'36526523',
+                brand:'Mocked Brand',
+                description:'Mocked Description',
+                cost:'4355',
                 isWorking:true
             }
         ];
-
         scope.showDetails=stubShowDetails;
 
-         //create and compile directive
-        el=angular.element('<tabular-data data="airConditioners" show-details="showDetails"></tabular-data>');
-        $compile(el)(scope);
+       el=angular.element('<tabular-data data="airConditioners" show-details="showDetails"></tabular-data>');
+       $compile(el)(scope);
         scope.$digest();
     }));
 
     it('should test that the directive was correctly rendered',function(){
-        expect(el.text()).toContain('MockedBrand');
+        expect(el.text()).toContain('Mocked Brand')
     });
 
     it('should check that the binding was clicked',function(){
+        console.log(el);
         el.find('tr')[1].click();
         expect(stubShowDetails.called).toBeTruthy();
-    })
+    });
 });

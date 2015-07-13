@@ -1,1 +1,21 @@
 <h1>This is admin</h1>
+<div ng-controller="adminController as vm">
+    <table class="table table-bordered table-condensed">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Nickname</th>
+            <th>Company</th>
+            <th>Technology</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="alguien in vm.alguienes">
+            <td>{{alguien.name}}</td>
+            <td>{{alguien.nickname}}</td>
+            <td>{{alguien.company}}</td>
+            <td>{{alguien.technology}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

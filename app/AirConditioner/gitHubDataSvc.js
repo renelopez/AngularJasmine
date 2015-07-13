@@ -16,8 +16,8 @@
 
         ////////////////
 
-        function get() {
-            return $http.get('https://api.github.com/users/renelopez')
+        function get(user) {
+            return $http.get('https://api.github.com/users/'+user);
         }
 
         function save(user) {
